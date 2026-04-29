@@ -1,0 +1,361 @@
+.account-page {
+  min-height: 100vh;
+  padding: 48px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+/* ── Header ─────────────────────────────────────────────── */
+.account-header {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  margin-bottom: 40px;
+  animation: fadeInUp 0.5s ease forwards;
+}
+
+.account-avatar-large {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--accent), var(--terracotta));
+  color: var(--text-inverse);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px;
+  font-weight: 700;
+  flex-shrink: 0;
+  box-shadow: 0 8px 24px rgba(201, 169, 110, 0.2);
+}
+
+.account-name {
+  font-family: var(--font-heading);
+  font-size: 32px;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 4px;
+}
+
+.account-joined {
+  font-size: 14px;
+  color: var(--text-muted);
+}
+
+/* ── Stats ─────────────────────────────────────────────── */
+.account-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-bottom: 40px;
+  animation: fadeInUp 0.5s 0.1s ease backwards;
+}
+
+.account-stat-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-xl);
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  text-align: center;
+  transition: all var(--transition-base);
+  backdrop-filter: blur(8px);
+}
+
+.account-stat-card:hover {
+  border-color: var(--border-hover);
+  background: var(--bg-card-hover);
+  transform: translateY(-2px);
+}
+
+.account-stat-icon {
+  font-size: 24px;
+  margin-bottom: 4px;
+}
+
+.account-stat-value {
+  font-family: var(--font-heading);
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--accent);
+}
+
+.account-stat-label {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+/* ── Sections ────────────────────────────────────────────── */
+.account-section {
+  margin-bottom: 36px;
+  animation: fadeInUp 0.5s 0.2s ease backwards;
+}
+
+.account-section-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 18px;
+}
+
+.account-section-title {
+  font-family: var(--font-heading);
+  font-size: 22px;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 18px;
+}
+
+.account-section-header .account-section-title {
+  margin-bottom: 0;
+}
+
+.account-view-all {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--accent);
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: all var(--transition-base);
+  padding: 6px 14px;
+  border-radius: var(--radius-full);
+}
+
+.account-view-all:hover {
+  background: var(--accent-muted);
+  transform: translateX(2px);
+}
+
+/* ── Profile Card ────────────────────────────────────────── */
+.account-profile-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  backdrop-filter: blur(8px);
+}
+
+.account-field {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 24px;
+  border-bottom: 1px solid var(--border);
+  transition: background var(--transition-fast);
+}
+
+.account-field:last-child {
+  border-bottom: none;
+}
+
+.account-field:hover {
+  background: var(--bg-glass-light);
+}
+
+.account-field-label {
+  font-size: 14px;
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+
+.account-field-value {
+  font-size: 14px;
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+/* ── Orders List ─────────────────────────────────────────── */
+.account-orders-list {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+}
+
+.account-order-row {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 16px 24px;
+  border-bottom: 1px solid var(--border);
+  transition: background var(--transition-fast);
+}
+
+.account-order-row:last-child {
+  border-bottom: none;
+}
+
+.account-order-row:hover {
+  background: var(--bg-glass-light);
+}
+
+.account-order-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.account-order-id {
+  display: block;
+  font-family: 'Courier New', monospace;
+  font-size: 12px;
+  color: var(--text-muted);
+  margin-bottom: 2px;
+}
+
+.account-order-items {
+  display: block;
+  font-size: 14px;
+  color: var(--text-primary);
+  font-weight: 500;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.account-order-status {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 4px 12px;
+  border-radius: var(--radius-full);
+  flex-shrink: 0;
+}
+
+.account-order-status.status-placed {
+  color: var(--accent);
+  background: var(--accent-muted);
+}
+
+.account-order-status.status-returned {
+  color: var(--danger);
+  background: var(--danger-muted);
+}
+
+.account-order-status.status-replaced {
+  color: var(--lavender);
+  background: var(--lavender-muted);
+}
+
+.account-order-amount {
+  font-family: var(--font-heading);
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--accent);
+  min-width: 60px;
+  text-align: right;
+  flex-shrink: 0;
+}
+
+.account-order-date {
+  font-size: 12px;
+  color: var(--text-muted);
+  flex-shrink: 0;
+  min-width: 80px;
+  text-align: right;
+}
+
+/* ── Empty Orders ─────────────────────────────────────────── */
+.account-empty-orders {
+  text-align: center;
+  padding: 40px 20px;
+  color: var(--text-muted);
+  font-size: 15px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-xl);
+}
+
+/* ── Logout ─────────────────────────────────────────────── */
+.account-logout-section {
+  padding-top: 16px;
+  border-top: 1px solid var(--border);
+  animation: fadeInUp 0.5s 0.3s ease backwards;
+}
+
+.account-logout-btn {
+  padding: 14px 32px;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--danger);
+  background: transparent;
+  border: 1.5px solid rgba(199, 80, 80, 0.3);
+  border-radius: var(--radius-full);
+  cursor: pointer;
+  transition: all var(--transition-base);
+}
+
+.account-logout-btn:hover {
+  background: var(--danger-muted);
+  border-color: var(--danger);
+  transform: translateY(-1px);
+}
+
+.account-logout-btn:active {
+  transform: scale(0.97);
+}
+
+/* ── Skeleton ─────────────────────────────────────────── */
+.account-skeleton {
+  padding-top: 20px;
+}
+
+.account-skeleton-header {
+  width: 300px;
+  height: 72px;
+  background: var(--bg-elevated);
+  border-radius: var(--radius-xl);
+  margin-bottom: 40px;
+  animation: shimmer 1.8s ease-in-out infinite;
+  background: linear-gradient(90deg, var(--bg-elevated) 0%, var(--bg-card-hover) 50%, var(--bg-elevated) 100%);
+  background-size: 200% 100%;
+}
+
+.account-skeleton-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+.account-skeleton-card {
+  height: 120px;
+  background: var(--bg-elevated);
+  border-radius: var(--radius-xl);
+  animation: shimmer 1.8s ease-in-out infinite;
+  background: linear-gradient(90deg, var(--bg-elevated) 0%, var(--bg-card-hover) 50%, var(--bg-elevated) 100%);
+  background-size: 200% 100%;
+}
+
+/* ── Responsive ───────────────────────────────────────── */
+@media (max-width: 768px) {
+  .account-page {
+    padding: 24px 20px;
+  }
+
+  .account-stats {
+    grid-template-columns: 1fr;
+  }
+
+  .account-order-row {
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .account-order-date {
+    width: 100%;
+    text-align: left;
+  }
+
+  .account-skeleton-cards {
+    grid-template-columns: 1fr;
+  }
+}

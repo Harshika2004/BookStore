@@ -1,0 +1,213 @@
+.addbook-page {
+  min-height: 100vh;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 60px 20px;
+}
+
+.addbook-card {
+  width: 100%;
+  max-width: 560px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-xl);
+  padding: 48px 40px;
+  animation: scaleIn 0.5s ease forwards;
+  position: relative;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.addbook-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 3px;
+  background: linear-gradient(90deg, var(--accent), var(--terracotta));
+  border-radius: 2px;
+}
+
+.addbook-header {
+  text-align: center;
+  margin-bottom: 36px;
+}
+
+.addbook-icon {
+  font-size: 36px;
+  margin-bottom: 16px;
+  color: var(--accent);
+}
+
+.addbook-title {
+  font-family: var(--font-heading);
+  font-size: 28px;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 8px;
+}
+
+.addbook-subtitle {
+  font-size: 14px;
+  color: var(--text-muted);
+}
+
+.addbook-form {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+/* Floating Label Input Group */
+.float-input-group {
+  position: relative;
+}
+
+.float-input-group input,
+.float-input-group textarea {
+  width: 100%;
+  padding: 14px 0;
+  font-size: 15px;
+  color: var(--text-primary);
+  background: transparent;
+  border: none;
+  border-bottom: 1.5px solid var(--border);
+  transition: all var(--transition-base);
+  resize: none;
+}
+
+.float-input-group textarea {
+  min-height: 80px;
+  line-height: 1.6;
+}
+
+.float-input-group input::placeholder,
+.float-input-group textarea::placeholder {
+  color: transparent;
+}
+
+.float-input-group label {
+  position: absolute;
+  left: 0;
+  top: 14px;
+  font-size: 15px;
+  color: var(--text-muted);
+  pointer-events: none;
+  transition: all var(--transition-base);
+}
+
+.float-input-group input:focus,
+.float-input-group textarea:focus,
+.float-input-group input:not(:placeholder-shown),
+.float-input-group textarea:not(:placeholder-shown) {
+  border-bottom-color: var(--accent);
+}
+
+.float-input-group input:focus ~ label,
+.float-input-group textarea:focus ~ label,
+.float-input-group input:not(:placeholder-shown) ~ label,
+.float-input-group textarea:not(:placeholder-shown) ~ label {
+  top: -8px;
+  font-size: 11px;
+  color: var(--accent);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+.float-input-group input:focus,
+.float-input-group textarea:focus {
+  box-shadow: 0 2px 0 0 var(--accent);
+}
+
+.input-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+
+/* Category Select */
+.select-group {
+  position: relative;
+}
+
+.select-label {
+  display: block;
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--accent);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+.select-input {
+  width: 100%;
+  padding: 14px 16px;
+  font-size: 15px;
+  color: var(--text-primary);
+  background: var(--bg-elevated);
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: all var(--transition-base);
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%236B6560' stroke-width='1.5' fill='none'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 16px center;
+}
+
+.select-input:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px var(--accent-muted);
+}
+
+.select-input option {
+  background: var(--bg-card);
+  color: var(--text-primary);
+}
+
+.addbook-submit {
+  width: 100%;
+  margin-top: 8px;
+  padding: 15px;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-inverse);
+  background: var(--accent);
+  border: none;
+  border-radius: var(--radius-full);
+  cursor: pointer;
+  transition: all var(--transition-base);
+}
+
+.addbook-submit:hover {
+  background: var(--accent-hover);
+  box-shadow: var(--shadow-glow);
+  transform: translateY(-2px);
+}
+
+.addbook-submit:active {
+  transform: scale(0.98);
+}
+
+.addbook-submit:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+@media (max-width: 560px) {
+  .addbook-card {
+    padding: 36px 24px;
+  }
+
+  .input-row {
+    grid-template-columns: 1fr;
+  }
+}
