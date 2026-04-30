@@ -156,7 +156,7 @@ function Login() {
       <div className="login-card" id="login-card">
         <div className="login-icon">📖</div>
         <h1 className="login-title">
-          {isLogin ? 'Welcome Back, Reader.' : 'Join The Book Cafe'}
+          {isLogin ? 'Welcome Back, Reader.' : 'Join The The Book Cafe'}
         </h1>
         <p className="login-subtitle">
           {isLogin

@@ -53,8 +53,8 @@ function Navbar() {
   return (
     <nav className="navbar" id="navbar">
       <Link to="/" className="navbar-brand">
-        <img src="/book_cafe_logo_transparent.png" alt="Book Cafe Logo" className="brand-logo-img" style={{ height: "60px", width: "auto" }} />
-        <span>Book Cafe</span>
+        <img src="/book_cafe_logo_transparent.png" alt="The Book Cafe Logo" className="brand-logo-img" style={{ height: "60px", width: "auto" }} />
+        <span>The Book Cafe</span>
       </Link>
 
       <button

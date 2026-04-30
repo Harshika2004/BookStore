@@ -12,7 +12,7 @@ function About() {
             <span className="about-title-accent">Wonder</span>
           </h1>
           <p className="about-intro">
-            The Book Cafe was born from a simple belief: that the right book at the right time
+            The The Book Cafe was born from a simple belief: that the right book at the right time
             can change everything. We curate stories that matter, for readers who care.
           </p>
         </div>
@@ -24,12 +24,12 @@ function About() {
           <span className="about-section-number">01 — ORIGIN</span>
           <h2 className="about-section-title">A Love Letter to Reading</h2>
           <p className="about-section-text">
-            Founded in 2024, The Book Cafe began as a quiet rebellion against the noise of modern life.
+            Founded in 2024, The The Book Cafe began as a quiet rebellion against the noise of modern life.
             In a world drowning in infinite scrolls, we wanted to build a sanctuary for the
             written word — a place where every book feels like a discovery, not just a transaction.
           </p>
           <p className="about-section-text">
-            Our name, The Book Cafe, comes from the Latin word for "leaf" — as in the leaf of a page.
+            Our name, The The Book Cafe, comes from the Latin word for "leaf" — as in the leaf of a page.
             Each volume in our collection has been chosen not by algorithms, but by people who
             read, discuss, and genuinely love literature.
           </p>

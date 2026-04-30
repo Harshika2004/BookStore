@@ -43,7 +43,7 @@ function AddBook() {
         <div className="addbook-header">
           <div className="addbook-icon">✦</div>
           <h1 className="addbook-title">Add New Book</h1>
-          <p className="addbook-subtitle">Add a new title to the The Book Cafe catalog</p>
+          <p className="addbook-subtitle">Add a new title to the The The Book Cafe catalog</p>
         </div>
 
         <form onSubmit={handleSubmit} className="addbook-form" id="addbook-form">

@@ -111,7 +111,7 @@ function Checkout() {
           key: keyId,
           amount: amount,
           currency: currency,
-          name: "Book Cafe",
+          name: "The Book Cafe",
           description: "Order Payment",
           order_id: orderId,
           handler: async function (response) {
@@ -132,9 +132,9 @@ function Checkout() {
                   razorpayPaymentId: response.razorpay_payment_id,
                   razorpaySignature: response.razorpay_signature
                 };
-                
+
                 await axios.post('/api/orders', orderData);
-                
+
                 localStorage.removeItem('cart');
                 window.dispatchEvent(new Event('cartUpdated'));
                 toast.success('Payment successful & Order placed!');
@@ -155,7 +155,7 @@ function Checkout() {
             color: "#C9A96E"
           },
           modal: {
-            ondismiss: function() {
+            ondismiss: function () {
               setLoading(false);
               setPaymentStatusText('');
               toast.info('Payment cancelled');

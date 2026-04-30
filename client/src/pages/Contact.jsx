@@ -50,7 +50,7 @@ function Contact() {
               <div className="contact-detail-icon">📧</div>
               <div>
                 <span className="contact-detail-label">Email</span>
-                <span className="contact-detail-text">brew@thebookcafe.com</span>
+                <span className="contact-detail-text">thebookcafe.store@gmail.com</span>
               </div>
             </div>
             <div className="contact-detail">

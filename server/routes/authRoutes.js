@@ -1,24 +1,19 @@
 const express = require("express");
 const router = express.Router();
+const fs = require("fs");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const crypto = require("crypto");
-const nodemailer = require("nodemailer");
 const User = require("../models/User");
 const { protect } = require("../middleware/authMiddleware");
+const { sendEmail } = require("../utils/email");
 
 // Helper: detect if input looks like a phone number
 const isPhone = (input) => /^\d{10,15}$/.test(input);
 
-// ── Email transporter (Gmail SMTP) ──────────────────────────
-const createTransporter = () => {
-  return nodemailer.createTransport({
-    service: "gmail",
-    auth: {
-      user: process.env.EMAIL_USER,
-      pass: process.env.EMAIL_PASS,
-    },
-  });
+const logToFile = (message) => {
+  const logMsg = `[${new Date().toISOString()}] ${message}\n`;
+  fs.appendFileSync("email_logs.txt", logMsg);
 };
 
 // REGISTER
@@ -148,6 +143,9 @@ router.post("/forgot-password", async (req, res) => {
 
     const user = await User.findOne({ email });
     if (!user) {
+      const msg = `ℹ️  Forgot Password: User not found for email ${email}`;
+      console.log(msg);
+      logToFile(msg);
       // Don't reveal whether email exists for security
       return res.json({ message: "If an account with that email exists, a reset link has been sent." });
     }
@@ -160,14 +158,15 @@ router.post("/forgot-password", async (req, res) => {
     user.resetTokenExpiry = Date.now() + 15 * 60 * 1000; // 15 minutes
     await user.save();
 
+    const startMsg = `📧 Attempting to send reset email to: ${user.email}`;
+    console.log(startMsg);
+    logToFile(startMsg);
+
     // Build reset URL (frontend URL)
     const resetUrl = `http://localhost:5173/reset-password?token=${resetToken}`;
 
-    // Send email
-    const transporter = createTransporter();
-
-    const mailOptions = {
-      from: `"The Book Cafe" <${process.env.EMAIL_USER}>`,
+    // Send email using utility
+    await sendEmail({
       to: user.email,
       subject: "Reset Your Password — The Book Cafe",
       html: `
@@ -192,13 +191,16 @@ router.post("/forgot-password", async (req, res) => {
           </div>
         </div>
       `,
-    };
-
-    await transporter.sendMail(mailOptions);
+    });
+    const successMsg = `✅ Reset email sent successfully to ${user.email}`;
+    console.log(successMsg);
+    logToFile(successMsg);
 
     res.json({ message: "If an account with that email exists, a reset link has been sent." });
   } catch (error) {
-    console.error("Forgot password error:", error);
+    const errorMsg = `❌ Forgot password error: ${error.message}`;
+    console.error(errorMsg);
+    logToFile(errorMsg);
     res.status(500).json({ message: "Failed to send reset email. Please try again." });
   }
 });
